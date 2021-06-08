@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name          = "Kezban"
-  spec.version       = "1.0.2"
+  spec.version       = "1.0.3"
   spec.summary       = "This is kezban util framework"
   spec.description   = "This is util framework that was made by a crazy engineer"
   spec.homepage      = "https://github.com/burkaydurdu/kezban"

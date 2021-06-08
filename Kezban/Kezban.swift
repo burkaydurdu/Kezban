@@ -11,4 +11,8 @@ import Foundation
     @objc public class func upperCase(_ content: String) -> String {
         return content.uppercased()
     }
+    
+    @objc public class func lowerCase(_ content: String) -> String {
+        return content.lowercased()
+    }
 }
