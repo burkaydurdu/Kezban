@@ -6,6 +6,20 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		A112CAE4267103CC005BA117 /* XC */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = A112CAE7267103CC005BA117 /* Build configuration list for PBXAggregateTarget "XC" */;
+			buildPhases = (
+				A112CAEB267103DB005BA117 /* Create XCFramework */,
+			);
+			dependencies = (
+			);
+			name = XC;
+			productName = "Create XCframework";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		A1F7C20A266E63360003B12F /* Kezban.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1F7C200266E63360003B12F /* Kezban.framework */; };
 		A1F7C20F266E63360003B12F /* KezbanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F7C20E266E63360003B12F /* KezbanTests.swift */; };
@@ -148,6 +162,9 @@
 				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
+					A112CAE4267103CC005BA117 = {
+						CreatedOnToolsVersion = 12.4;
+					};
 					A1F7C1FF266E63360003B12F = {
 						CreatedOnToolsVersion = 12.4;
 						LastSwiftMigration = 1240;
@@ -172,6 +189,7 @@
 			targets = (
 				A1F7C1FF266E63360003B12F /* Kezban */,
 				A1F7C208266E63360003B12F /* KezbanTests */,
+				A112CAE4267103CC005BA117 /* XC */,
 			);
 		};
 /* End PBXProject section */
@@ -192,6 +210,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A112CAEB267103DB005BA117 /* Create XCFramework */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Create XCFramework";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "SCHEME_NAME=\"Kezban\"\nFRAMEWORK_NAME=\"Kezban\"\nSIMULATOR_ARCHIVE_PATH=\"${BUILD_DIR}/${CONFIGURATION}/${FRAMEWORK_NAME}-iphonesimulator.xcarchive\"\nDEVICE_ARCHIVE_PATH=\"${BUILD_DIR}/${CONFIGURATION}/${FRAMEWORK_NAME}-iphoneos.xcarchive\"\nOUTPUT_DIC=\"./\"\n# Simulator xcarchieve\nxcodebuild archive \\\n  -scheme ${SCHEME_NAME} \\\n  -archivePath ${SIMULATOR_ARCHIVE_PATH} \\\n  -sdk iphonesimulator \\\n  -configuration ${CONFIGURATION} \\\n  SKIP_INSTALL=NO\n# Device xcarchieve\nxcodebuild archive \\\n  -scheme ${SCHEME_NAME} \\\n  -archivePath ${DEVICE_ARCHIVE_PATH} \\\n  -sdk iphoneos \\\n  -configuration ${CONFIGURATION} \\\n  SKIP_INSTALL=NO\n# Clean up old output directory\nrm -rf \"${OUTPUT_DIC}\"\n# Create xcframwork combine of all frameworks\nxcodebuild -create-xcframework \\\n  -framework ${SIMULATOR_ARCHIVE_PATH}/Products/Library/Frameworks/${FRAMEWORK_NAME}.framework \\\n  -framework ${DEVICE_ARCHIVE_PATH}/Products/Library/Frameworks/${FRAMEWORK_NAME}.framework \\\n  -output ${OUTPUT_DIC}/${FRAMEWORK_NAME}.xcframework\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A1F7C1FC266E63360003B12F /* Sources */ = {
@@ -221,6 +260,24 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		A112CAE5267103CC005BA117 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q5T7NW87VT;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A112CAE6267103CC005BA117 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q5T7NW87VT;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		A1F7C212266E63360003B12F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -441,6 +498,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A112CAE7267103CC005BA117 /* Build configuration list for PBXAggregateTarget "XC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A112CAE5267103CC005BA117 /* Debug */,
+				A112CAE6267103CC005BA117 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A1F7C1FA266E63360003B12F /* Build configuration list for PBXProject "Kezban" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

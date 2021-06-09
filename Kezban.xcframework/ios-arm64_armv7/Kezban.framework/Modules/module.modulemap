@@ -1,0 +1,11 @@
+framework module Kezban {
+  umbrella header "Kezban.h"
+
+  export *
+  module * { export * }
+}
+
+module Kezban.Swift {
+    header "Kezban-Swift.h"
+    requires objc
+}
